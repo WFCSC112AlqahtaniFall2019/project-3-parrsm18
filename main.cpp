@@ -22,7 +22,7 @@ int main() {
     vector<int> t(length); // temporary workspace
 
     // define an integer pointer dynamically allocate an array of integers
-    /* your code here */
+    int* intArray = new int [length];
 
     // initialize and print input
     cout << "Unsorted:" << endl;
@@ -33,7 +33,9 @@ int main() {
     cout << endl;
 
     // copy the random list of integers from vector to array
-    /* your code here */
+    for (int i = 0; i < v.size(); i++){
+        *(intArray + i) = v.at(i);
+    }
 
     clock_t start_mergeSort = clock();
     // sort vector using mergeSort
@@ -45,14 +47,15 @@ int main() {
         assert(v.at(i-1) <= v.at(i));
     }
 
-    // check output, make sure array is sorted after bubbleSort
-    /* your code here */
-
     clock_t start_bubbleSort = clock();
     // sort array using bubbleSort
-    /* your code here */
+    bubbleSort(intArray, 0);
     clock_t end_bubbleSort = clock();
 
+    // check output, make sure array is sorted after bubbleSort
+    for (int i = 1; i < v.size(); i++ ){
+        assert(*(intArray + i - 1) <= *(intArray + i));
+    }
 
     // print sorted vector after mergeSort
     cout << "Sorted:" << endl;
