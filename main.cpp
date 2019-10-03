@@ -130,7 +130,7 @@ void mergeSort(vector<int>& a, vector<int>& tmp, int left, int right) {
 }
 
 // Swap function
-void swap(int *a, int *b) {
+void swap(int *a, int *b) { //Swaps two elements in the array
     int temp;
     temp = *a;
     *a = *b;
@@ -139,7 +139,7 @@ void swap(int *a, int *b) {
 
 // BubbleSort function
 void bubbleSort(int *a, int n) {
-    while(n > 0) {
+    while(n > 0) { //Runs bubblesort as many times as there are elements in the array
         for (int j = 0; j < n - 1; j++) {
             if (a[j] > a[j + 1]) {
                 swap(a[j], a[j + 1]);
@@ -147,8 +147,7 @@ void bubbleSort(int *a, int n) {
         }
         n--;
     }
-
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n - 1; i++) { //Runs bubblesort one additional time
         if (a[i] > a[i + 1]) {
             swap(a[i], a[i + 1]);
         }
